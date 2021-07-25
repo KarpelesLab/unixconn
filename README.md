@@ -1,3 +1,5 @@
+[![GoDoc](https://godoc.org/github.com/KarpelesLab/unixconn?status.svg)](https://godoc.org/github.com/KarpelesLab/unixconn)
+
 # UnixConn tools
 
 Some stuff commonly used made more simple.
