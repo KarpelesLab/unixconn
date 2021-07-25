@@ -8,7 +8,7 @@ import (
 
 // Pair will return a pair of interconnected sockets that can be used for
 // testing and more.
-func Pair() ([]net.Conn, error) {
+func Pair() ([]*net.UnixConn, error) {
 	pair, err := syscall.Socketpair(syscall.AF_LOCAL, syscall.SOCK_STREAM, 0)
 	if err != nil {
 		return nil, err
@@ -26,5 +26,6 @@ func Pair() ([]net.Conn, error) {
 	if err != nil {
 		return nil, err
 	}
-	return []net.Conn{link1, link2}, nil
+	// this will panic if link1/2 aren't *net.UnixConn, but we know they are... Right?
+	return []*net.UnixConn{link1.(*net.UnixConn), link2.(*net.UnixConn)}, nil
 }

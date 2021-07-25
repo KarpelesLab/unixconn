@@ -10,9 +10,8 @@ Calling
 	pair, err := unixconn.Pair()
 ```
 
-Allows pair to contain two `net.Conn` that are connected to each other. Those
-will actually be `*net.UnixConn` instances and I might just change the function
-to match this.
+Allows pair to contain two `*net.UnixConn` that are connected to each other.
+Those can be used as replacement to TCP connections in test code, for example.
 
 ## cred
 
